@@ -1,7 +1,15 @@
-var playerName = window.prompt("What is your robot's name?"); // Note the lack of quotation marks around playerName 
-window.alert(playerName);
-function fight() {
-    window.alert("The fight has begun!")
-}
-// fight();
+var playerName = window.prompt("What is your robot's name?");
+var playerHealth = 100;
+var playerAttack = 10;
+
+var enemyName = "Roborto";
+var enemyHealth = 50;
+var enenmyAttack = 12;
+
+var fight = function() {
+    window.alert("Welcome to Robot Gladiators!")
+};
+
+fight();
+
 
