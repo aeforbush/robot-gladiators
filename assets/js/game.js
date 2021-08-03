@@ -66,11 +66,12 @@ else {
     window.alert("You need to pick a valid option.  Try again!");
 }
 }
+    }
+}
 
 for(var i = 0; i < enemyNames.length; i++) {
     debugger;
     fight(enemyNames[i]);
 }
-    }
-}
+
 
