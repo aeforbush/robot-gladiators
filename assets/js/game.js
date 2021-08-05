@@ -84,9 +84,9 @@ var startGame = function () {
             break;
         }
     }
+    startGame();
 };
-// start the game when the page loads
-startGame();
+
 
 //fight();
 
