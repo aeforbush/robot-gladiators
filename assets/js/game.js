@@ -32,7 +32,7 @@ var fight = function(enemyName) {
     // remove enemy's health by subtracting the amount set in the playerAttack variable.
     enemyHealth = enemyHealth - playerAttack;
     console.log(
-        playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining."
+        playerName + ' attacked ' + enemyName + '. ' + enemyName + ' now has ' + enemyHealth + ' health remaining.'
     );
 
     // check enemy's health
@@ -52,7 +52,7 @@ var fight = function(enemyName) {
     // remove player's health by substracting the amount set in the enemyAttack variable.
     playerHealth = playerHealth - enenmyAttack;
     console.log(
-    enemyName + " attacked " + playerName + " . " + playerName + " now has " + playerHealth + " health remaining."
+        enemyName + ' attacked ' + playerName + '. ' + playerName + ' now has ' + playerHealth + ' health remaining.'
     );
 
     // check player's health
@@ -89,15 +89,15 @@ var startGame = function () {
             // pass the pickedEnemyName variable's value into the fight function, where it will asssume the value of the enemyName parameter
             fight(pickedEnemyName);
 
-            //if player is still alive and we're not at the last enemy in the array
-            if (playerHealth > 0 && i < enemyNames.length -1) {
-                //ask if player wants to use the store before the next round
-                var storeConfirm = window.confirm("The fight is over, visit the store before the next round?");
-
-                // if yes, take them to the store() function
-                if (storeCoonfirm) {
-                    
-                }
+           //if player is still alive and we're not at the last enemy in the array
+           if (playerHealth > 0 && i < enemyNames.length -1) {
+               // ask if player wants to use the store before next round
+               var storeConfirm = window.confirm("The fight is over, visit the store before the next round?");
+               
+               // if yes, take them to the store() function
+               if (storeConfirm) {
+               shop();
+               }
             }
         }
         else {
@@ -135,6 +135,13 @@ else {
 }
 };
 
+// function to shop
+var shop = function() {
+    // ask player what they'd like to do
+    var shopOptionPrompt = window.prompt(
+      "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: 'REFILL', 'UPGRADE', or 'LEAVE' to make a choice." 
+    );
+};
 
 
 startGame();
