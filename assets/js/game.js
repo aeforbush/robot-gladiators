@@ -31,7 +31,9 @@ var fight = function(enemyName) {
 }
 
     // remove enemy's health by subtracting the amount set in the playerAttack variable.
-    enemyHealth = Math.max(0, enemyHealth - playerAttack);
+    // generate random damage value based on player's attack power
+    var damage = randomNumber(playerAttack - 3, playerAttack);
+    enemyHealth = Math.max(0, enemyHealth - damage);
     console.log(
         playerName + ' attacked ' + enemyName + '. ' + enemyName + ' now has ' + enemyHealth + ' health remaining.');
 
@@ -50,7 +52,9 @@ var fight = function(enemyName) {
     }
 
     // remove player's health by substracting the amount set in the enemyAttack variable.
-    playerHealth = Math.max(0, playerHealth - enenmyAttack);
+    // generate random damage value based on robot's attack power
+    var damage = randomNumber(enenmyAttack - 3, enenmyAttack);
+    playerHealth = Math.max(0, playerHealth - damage);
     console.log(
         enemyName + ' attacked ' + playerName + '. ' + playerName + ' now has ' + playerHealth + ' health remaining.');
 
@@ -81,7 +85,7 @@ var startGame = function() {
             var pickedEnemyName = enemyNames[i];
 
             //reset enemyHealth before starting new fight
-            enemyHealth = randomNumber();
+            enemyHealth = randomNumber(40, 60);
             // use debugger to pause script from running and checking what's going on at that moment in the code
              // debugger;
 
@@ -187,8 +191,8 @@ switch (shopOptionPrompt) {
 };
 
 // function to generate a random numeric value
-var randomNumber = function(40, 60) {
-    var value = Math.floor(Math.random()* (21))+40;
+var randomNumber = function(min, max) {
+    var value = Math.floor(Math.random()* (max-min+1))+min;
 
     return value;
 };
