@@ -2,6 +2,7 @@ var playerName = window.prompt("What is your robot's name?");
 var playerHealth = 100;
 var playerAttack = 20;
 var playerMoney = 10;
+
 var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enenmyAttack = 12;
@@ -72,7 +73,7 @@ var startGame = function() {
     playerMoney = 10;
 
     // fight each enemy robot by looping over them and fighting them one at a time
-    for (var i = 0; i < enemyNames.lengthj; i++) {
+    for (var i = 0; i < enemyNames.length; i++) {
         // if player is still alive, keep fighting
         if (playerHealth > 0) {
             window.alert('Welcome to Robot Gladiators! Round ' + (i +1));
@@ -82,7 +83,7 @@ var startGame = function() {
             //reset enemyHealth before starting new fight
             enemyHealth = 50;
             // use debugger to pause script from running and checking what's going on at that moment in the code
-            // debugger;
+             debugger;
 
             // pass the pickedEnemyName variable's value into the fight function, where it will asssume the value of the enemyName parameter
             fight(pickedEnemyName);
