@@ -75,7 +75,7 @@ var fightOrSkip = function() {
     return false;
  };
 
-// fight function (now with parameter for enemy's on=bject holidng name, health, and attack values)
+// fight function (now with parameter for enemy's object holding name, health, and attack values)
 var fight = function(enemy) {
     // keep track of who goes first
     var isPlayerTurn = true;
@@ -101,7 +101,7 @@ var fight = function(enemy) {
         playerInfo.names +
         " attacked " +
         enemy.name +
-        " . " +
+        ". " +
         enemy.name +
         " now has " +
         enemy.health +
@@ -237,7 +237,7 @@ var shop = function() {
     shopOptionPrompt = parseInt(shopOptionPrompt);
 
     // use switch to carry out action
-    debugger;
+    //debugger;
     switch (shopOptionPrompt) {
     case 1:
     playerInfo.refillHealth();
