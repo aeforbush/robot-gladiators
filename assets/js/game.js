@@ -237,6 +237,7 @@ var shop = function() {
     shopOptionPrompt = parseInt(shopOptionPrompt);
 
     // use switch to carry out action
+    debugger;
     switch (shopOptionPrompt) {
     case 1:
     playerInfo.refillHealth();
