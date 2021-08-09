@@ -1,46 +1,3 @@
-// function to set name
-var getPlayerName = function() {
-    var name = "";
-
-    while (name === "" || name === null) {
-        name = prompt("What is your robot's name?");
-    }
-
-    console.log("Your robot's name is" + name);
-    return name;
-};
-var playerInfo = {
-    name: getPlayerName(),
-    name: window.prompt("What is your robot's name?"),
-    health: 100,
-    attack: 10,
-    money: 10,
-    reset: function() {
-        this.health = 100;
-        this.money = 10;
-        this.attack = 10;
-    }, // comma!
-    refillHealth: function() {
-        if (this.money >= 7) {
-            alert("Refilling player's health by 20 for 7 dollars.");
-            this.health +=20;
-            this.money -=7;
-        }
-        else {
-            alert("You don't have enough money!");
-        }
-    }, // comma!
-    upgradeAttack: function() {
-        if (this.money >=7) {
-            alert("Upgrading player's attack by 6 for 7 dollars.");
-            this.attack +=6;
-            this.money -=7;
-        }
-        else {
-            alert("You don't have enough money!");
-        }
-    }
-  };
 
 // function to check if player wants to fight or skip
 var fightOrSkip = function() {
@@ -206,24 +163,38 @@ var startGame = function() {
 var endGame = function() {
     window.alert("The game has now ended.  Let's see how you did!");
 
+    // check localStorage for high score, if it's not there, use 0
+    var highScore = localStorage.getItem("highscore");
+    if (highScore === null) {
+        highScore = 0;
+    }
+
+    // if player has more money than the high score, player has new high score!
+    if (playerInfo.money > highScore) {
+        localStorage.setItem("highscore", playerInfo.money);
+        localStorage.setItem("name", playerInfo.name);
+
+        alert(playerInfo.name + " now has the high score of " + playerInfo.money + "!");
+    }
+
     //if player is still alive, player wins!
     if (playerInfo.health > 0) {
         window.alert("Great job, you've survived the game! You now have a score of " + playerInfo.money + '.');
     }
     else {
-        window.alert("You've lost your robot in battle");
+        alert(playerInfo.name + " did not beat the high score of " + highScore + ". Maybe next time!");
     }
 
-// as player if they'd like to play again
-var playAgainConfirm = window.confirm("Would you like to play again?");
+    // as player if they'd like to play again
+    var playAgainConfirm = window.confirm("Would you like to play again?");
 
-if (playAgainConfirm) {
+    if (playAgainConfirm) {
     // restart the game
     startGame();
-}
-else {
+    }
+    else {
     window.alert("Thank you for playing Robot Gladiators! Come back soon!");
-}
+    }
 };
 
 // function to shop
@@ -261,15 +232,50 @@ var shop = function() {
 // function to set name
 var getPlayerName = function() {
     var name = "";
-  
+
     while (name === "" || name === null) {
-      name = prompt("What is your robot's name?");
+        name = prompt("What is your robot's name?");
     }
-    console.log("Your robot's name is " + name);
+
+    //console.log("Your robot's name is" + name);
     return name;
+};
+
+// GAME INFORMATION/VARIABLES
+var playerInfo = {
+    name: getPlayerName(),
+    name: window.prompt("What is your robot's name?"),
+    health: 100,
+    attack: 10,
+    money: 10,
+    reset: function() {
+        this.health = 100;
+        this.money = 10;
+        this.attack = 10;
+    }, // comma!
+    refillHealth: function() {
+        if (this.money >= 7) {
+            alert("Refilling player's health by 20 for 7 dollars.");
+            this.health +=20;
+            this.money -=7;
+        }
+        else {
+            alert("You don't have enough money!");
+        }
+    }, // comma!
+    upgradeAttack: function() {
+        if (this.money >=7) {
+            alert("Upgrading player's attack by 6 for 7 dollars.");
+            this.attack +=6;
+            this.money -=7;
+        }
+        else {
+            alert("You don't have enough money!");
+        }
+    }
   };
 
-  // END GAME FUNCTIONS
+
 // function to generate a random numeric value
 var randomNumber = function(min, max) {
     var value = Math.floor(Math.random()* (max-min+1))+min;
